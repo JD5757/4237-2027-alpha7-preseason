@@ -2,20 +2,12 @@ package first.robot.motors;
 
 import java.util.ArrayList;
 
-// import edu.wpi.first.networktables.NetworkTable;
-// import edu.wpi.first.networktables.NetworkTableInstance;
-// import edu.wpi.first.networktables.StringPublisher;
-// import edu.wpi.first.wpilibj.MotorSafety;
-// import edu.wpi.first.wpilibj.motorcontrol.MotorController;
-// import frc.robot.Constants.NetworkTableLance;
-
 import org.wpilib.networktables.NetworkTable;
 import org.wpilib.networktables.NetworkTableInstance;
 import org.wpilib.networktables.StringPublisher;
 import org.wpilib.hardware.motor.MotorSafety;
 import org.wpilib.hardware.motor.MotorController;
 import first.robot.Constants.NetworkTableLance;
-
 
 /**
  * This abstract class defines the abstract methods that all motor controllers have.
