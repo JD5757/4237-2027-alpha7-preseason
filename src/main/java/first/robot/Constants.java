@@ -121,6 +121,21 @@ public final class Constants {
         public static final Alert COLOR_WHEEL = new Alert("Example not selected", "8", "Color Wheel", Alert.Level.LOW);
         public static final Alert HISTORY = new Alert("Example not selected", "9", "History", Alert.Level.LOW);
         public static final Alert INTAKE = new Alert("Example not selected", "10", "Intake", Alert.Level.LOW);
+        public static final Alert EXAMPLEMECHANISM = new Alert("Example not selected", "10", "Intake", Alert.Level.LOW);
         public static final Alert ENABLE_DISABLE = new Alert("Example not selected", "11", "Enable Disable", Alert.Level.LOW);        
+    }
+
+    public static class NetworkTableLance
+    {
+        public static final String TEAM_TABLE = "TeamLance";
+        public static final String ADVANTAGE_SCOPE_TABLE = "ASTable";
+    }
+
+    public static class ExampleMechanism
+    {
+        public static String MOTOR_CAN_BUS = "rio";
+
+        public static final int MOTOR1 = 0;
+        public static final int MOTOR2 = 1;
     }
 }

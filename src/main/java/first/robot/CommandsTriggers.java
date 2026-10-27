@@ -15,6 +15,7 @@ import org.wpilib.system.Timer;
 import org.wpilib.util.Color;
 
 import first.robot.Constants.Alerts;
+import first.robot.mechanisms.ExampleMechanism;
 import first.robot.mechanisms.AchieveHueGoal;
 import first.robot.mechanisms.HistoryFSM;
 import first.robot.mechanisms.Intake;
@@ -28,6 +29,7 @@ public abstract class CommandsTriggers {
   private static Optional<Boolean>           m_triggerNextCommand;
   private static Optional<HistoryFSM>        m_historyFSM;
   private static Optional<Intake>            m_intake;
+  private static Optional<ExampleMechanism>  m_exampleMechanism;
   private static Optional<MooreLikeFSM>      m_lightBar;
   private static Optional<Boolean>           m_UseAutonomousSignal;
   private static Optional<Boolean>           m_UseColorWheel;
@@ -49,6 +51,7 @@ public abstract class CommandsTriggers {
     m_lightBar = robotContainer.getM_mooreLikeFSM();
     m_UseAutonomousSignal = robotContainer.getM_autonomousSignal();
     m_UseColorWheel = robotContainer.getM_useColorWheel();
+    m_exampleMechanism = robotContainer.getM_exampleMechanism();
 
     configureGameControllersBindings();
   }
@@ -173,24 +176,34 @@ public abstract class CommandsTriggers {
     /**
      * Use operator "B" button for a fake indicator game piece is acquired
      */
-    if (m_intake.isPresent()) {
-      m_operatorController.b().whileTrue(m_intake.get().gamePieceIsAcquired());
+    // if (m_intake.isPresent()) {
+    //   m_operatorController.b().whileTrue(m_intake.get().gamePieceIsAcquired());
+    // }
+    // else {
+    //   Alerts.INTAKE.set(true);
+    // }
+    if (m_exampleMechanism.isPresent()) {
+      m_operatorController.b().onTrue(m_exampleMechanism.get().onCommand());
     }
     else {
-      Alerts.INTAKE.set(true);
+      Alerts.EXAMPLEMECHANISM.set(true);
     }
 
     /**
      * Start History FSM Control with the operator "Y" button
      */
-    if (m_historyFSM.isPresent())
-    {
-      final var yButtonDebounceTime = Milliseconds.of(40.0);
-      m_operatorController.y().debounce(yButtonDebounceTime).onTrue(m_historyFSM.get().newColor());      
+    // if (m_historyFSM.isPresent())
+    // {
+    //   final var yButtonDebounceTime = Milliseconds.of(40.0);
+    //   m_operatorController.y().debounce(yButtonDebounceTime).onTrue(m_historyFSM.get().newColor());      
+    // }
+    // else {
+    //   Alerts.HISTORY.set(true);
+    // }
+    if (m_exampleMechanism.isPresent()) {
+      m_operatorController.y().onTrue(m_exampleMechanism.get().setCommand(() -> 0.5));
     }
-    else {
-      Alerts.HISTORY.set(true);
-    }
+    else {}
 
     /**
      * Start a color wheel display with the operator "X" button

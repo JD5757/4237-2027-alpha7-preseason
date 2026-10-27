@@ -17,13 +17,14 @@ import first.robot.mechanisms.AchieveHueGoal;
 import first.robot.mechanisms.HistoryFSM;
 import first.robot.mechanisms.Intake;
 import first.robot.mechanisms.RobotSignals;
+import first.robot.mechanisms.ExampleMechanism;
 
 public class RobotContainer {
   
   public enum ExamplesSelector // All the possible examples
   {
     useAchieveHueGoal, useDisjointParallelGroup, useTriggerNextCommand, useHistoryFSM, useIntake,
-    useMooreLikeFSM, useAutonomousSignal, useColorWheel, useEnableDisable, useAnotherFSMtest
+    useMooreLikeFSM, useAutonomousSignal, useColorWheel, useEnableDisable, useAnotherFSMtest, useExampleMechanism
   };
 
   @SuppressWarnings("unused")
@@ -71,6 +72,11 @@ public class RobotContainer {
   }
   
   // optional classes and mechanisms
+  private Optional<ExampleMechanism> m_exampleMechanism  = examplesSelector.contains(ExamplesSelector.useExampleMechanism) ? Optional.of(new ExampleMechanism()) : Optional.empty();
+  public Optional<ExampleMechanism> getM_exampleMechanism()
+  {
+    return m_exampleMechanism;
+  }
 
   private Optional<AchieveHueGoal> m_achieveHueGoal;
   public Optional<AchieveHueGoal> getM_achieveHueGoal() {

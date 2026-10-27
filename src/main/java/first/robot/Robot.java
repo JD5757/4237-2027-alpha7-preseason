@@ -192,7 +192,7 @@ package first.robot;
 import org.wpilib.command3.Command;
 import org.wpilib.command3.Scheduler;
 import org.wpilib.datalog.ProtobufLogEntry;
-import org.wpilib.epilogue.Epilogue;
+// import org.wpilib.epilogue.Epilogue;
 import org.wpilib.epilogue.Logged;
 import org.wpilib.epilogue.NotLogged;
 import org.wpilib.framework.OpModeRobot;
@@ -261,7 +261,7 @@ public class Robot extends OpModeRobot {
     scheduler.run(); // check all triggers and run all scheduled commands
 
     // Update telemetry
-    Epilogue.update(this);
+    // Epilogue.update(this);
     schedulerLog.append(scheduler); // dumps info to NT but bug in 2027 alpha7 causes DataLog to show <invalid> instead of the good NT data that does show but passes by quickly!
   }
 
